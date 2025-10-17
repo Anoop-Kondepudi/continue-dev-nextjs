@@ -55,10 +55,18 @@ export default function Plans() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
-    <section id="Plans" className="py-20 px-6">
+    <section id="Plans" className="py-20 px-6 bg-white">
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-b from-black to-gray-500 bg-clip-text text-transparent">
+          <h2 
+            className="text-4xl md:text-5xl font-bold mb-4"
+            style={{
+              background: "linear-gradient(to bottom, #000000 0%, #666666 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
             Built for developer-centric teams who want flexibility without compromise.
           </h2>
         </div>
@@ -68,14 +76,21 @@ export default function Plans() {
             <div
               key={plan.id}
               className={cn(
-                "relative rounded-2xl border p-6 transition-all duration-300 hover:shadow-xl",
+                "relative rounded-2xl border p-8 transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden",
                 plan.bgClass,
                 plan.borderColor,
-                hoveredCard === plan.id ? "scale-[1.02]" : ""
+                hoveredCard === plan.id ? "scale-[1.03] -translate-y-2" : ""
               )}
               onMouseEnter={() => setHoveredCard(plan.id)}
               onMouseLeave={() => setHoveredCard(null)}
+              style={{
+                background: `linear-gradient(to bottom, ${plan.bgClass === 'bg-purple-50' ? '#faf5ff' : plan.bgClass === 'bg-blue-50' ? '#eff6ff' : '#f0fdf4'}, white)`,
+              }}
             >
+              {/* Top gradient border effect */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r" style={{
+                background: `linear-gradient(to right, ${plan.textColor.includes('purple') ? '#a855f7' : plan.textColor.includes('blue') ? '#3b82f6' : '#10b981'}, transparent)`
+              }} />
               {/* Badge */}
               <div className="mb-4 flex items-center gap-2">
                 <div className={cn("p-2 rounded-lg", plan.bgClass)}>

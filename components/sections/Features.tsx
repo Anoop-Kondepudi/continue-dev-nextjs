@@ -40,14 +40,22 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-24 px-6 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-[1200px] mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-b from-black to-gray-500 bg-clip-text text-transparent">
+        <div className="text-center mb-24">
+          <h2 
+            className="text-4xl md:text-5xl font-bold mb-6"
+            style={{
+              background: "linear-gradient(to bottom, #000000 0%, #666666 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
             Everything you need to code faster
           </h2>
-          <p className="text-xl text-gray-600 max-w-[700px] mx-auto">
+          <p className="text-xl text-gray-600 max-w-[700px] mx-auto leading-relaxed">
             Continue brings AI to every part of your development workflow—from writing code to
             deploying it.
           </p>
